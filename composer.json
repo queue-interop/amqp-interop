@@ -1,0 +1,14 @@
+{
+  "name": "queue-interop/amqp-interop",
+  "type": "library",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.6",
+    "queue-interop/queue-interop": "^0.5@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Interop\\Amqp\\": "src/Interop/Amqp/"
+    }
+  }
+}
