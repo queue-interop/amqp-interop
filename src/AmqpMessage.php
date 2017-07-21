@@ -4,7 +4,7 @@ namespace Interop\Amqp;
 
 use Interop\Queue\PsrMessage;
 
-interface Message extends PsrMessage
+interface AmqpMessage extends PsrMessage
 {
     /**
      * @param int $priority

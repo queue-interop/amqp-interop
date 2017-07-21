@@ -2,7 +2,6 @@
 
 namespace Interop\Amqp;
 
-interface Destination
+interface AmqpDestination
 {
-
 }
