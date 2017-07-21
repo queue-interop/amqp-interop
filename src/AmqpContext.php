@@ -8,48 +8,38 @@ interface AmqpContext extends PsrContext
 {
     /**
      * @param AmqpExchange $exchange
-     * @param bool     $noWait
      */
-    public function declareExchange(AmqpExchange $exchange, $noWait = false);
+    public function declareExchange(AmqpExchange $exchange);
 
     /**
      * @param AmqpExchange $exchange
-     * @param bool     $ifUnused
-     * @param bool     $noWait
      */
-    public function deleteExchange(AmqpExchange $exchange, $ifUnused = false, $noWait = false);
+    public function deleteExchange(AmqpExchange $exchange);
 
     /**
      * @param AmqpQueue $queue
-     * @param bool  $noWait
      */
-    public function declareQueue(AmqpQueue $queue, $noWait = false);
+    public function declareQueue(AmqpQueue $queue);
 
     /**
      * @param AmqpQueue $queue
-     * @param bool  $ifUnused
-     * @param bool  $ifEmpty
-     * @param bool  $noWait
      */
-    public function deleteQueue(AmqpQueue $queue, $ifUnused = false, $ifEmpty = false, $noWait = false);
+    public function deleteQueue(AmqpQueue $queue);
 
     /**
      * @param AmqpQueue $queue
-     * @param bool  $noWait
      */
-    public function purgeQueue(AmqpQueue $queue, $noWait = false);
+    public function purgeQueue(AmqpQueue $queue);
 
     /**
      * @param AmqpDestination $source
      * @param AmqpDestination $target
-     * @param bool        $noWait
      */
-    public function bind(AmqpDestination $source, AmqpDestination $target, $noWait = false);
+    public function bind(AmqpDestination $source, AmqpDestination $target);
 
     /**
      * @param AmqpDestination $source
      * @param AmqpDestination $target
-     * @param bool        $noWait
      */
-    public function unbind(AmqpDestination $source, AmqpDestination $target, $noWait = false);
+    public function unbind(AmqpDestination $source, AmqpDestination $target);
 }
