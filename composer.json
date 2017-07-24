@@ -10,5 +10,10 @@
     "psr-4": {
       "Interop\\Amqp\\": "src/Interop/Amqp/"
     }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.5.x-dev"
+    }
   }
 }
