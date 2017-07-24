@@ -18,6 +18,8 @@ interface AmqpContext extends PsrContext
 
     /**
      * @param AmqpQueue $queue
+     *
+     * @return int
      */
     public function declareQueue(AmqpQueue $queue);
 
@@ -32,14 +34,12 @@ interface AmqpContext extends PsrContext
     public function purgeQueue(AmqpQueue $queue);
 
     /**
-     * @param AmqpDestination $source
-     * @param AmqpDestination $target
+     * @param AmqpBind $bind
      */
-    public function bind(AmqpDestination $source, AmqpDestination $target);
+    public function bind(AmqpBind $bind);
 
     /**
-     * @param AmqpDestination $source
-     * @param AmqpDestination $target
+     * @param AmqpBind $bind
      */
-    public function unbind(AmqpDestination $source, AmqpDestination $target);
+    public function unbind(AmqpBind $bind);
 }

@@ -51,4 +51,9 @@ interface AmqpMessage extends PsrMessage
      * @return int
      */
     public function getFlags();
+
+    /**
+     * @param int $flags
+     */
+    public function setFlags($flags);
 }

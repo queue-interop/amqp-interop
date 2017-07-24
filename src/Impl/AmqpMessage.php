@@ -291,4 +291,12 @@ class AmqpMessage implements InteropAmqpMessage
     {
         return $this->flags;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setFlags($flags)
+    {
+        $this->flags = $flags;
+    }
 }
