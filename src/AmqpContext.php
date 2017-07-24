@@ -7,14 +7,14 @@ use Interop\Queue\PsrContext;
 interface AmqpContext extends PsrContext
 {
     /**
-     * @param AmqpExchange $exchange
+     * @param AmqpTopic $topic
      */
-    public function declareExchange(AmqpExchange $exchange);
+    public function declareTopic(AmqpTopic $topic);
 
     /**
-     * @param AmqpExchange $exchange
+     * @param AmqpTopic $topic
      */
-    public function deleteExchange(AmqpExchange $exchange);
+    public function deleteTopic(AmqpTopic $topic);
 
     /**
      * @param AmqpQueue $queue

@@ -6,6 +6,8 @@ use Interop\Queue\PsrQueue;
 
 interface AmqpQueue extends PsrQueue, AmqpDestination
 {
+    const FLAG_EXCLUSIVE = 32;
+
     /**
      * @param int $flags
      */

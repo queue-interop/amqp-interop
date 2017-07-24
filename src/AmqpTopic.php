@@ -4,8 +4,15 @@ namespace Interop\Amqp;
 
 use Interop\Queue\PsrTopic;
 
-interface AmqpExchange extends PsrTopic, AmqpDestination
+interface AmqpTopic extends PsrTopic, AmqpDestination
 {
+    const TYPE_DIRECT = 'direct';
+    const TYPE_FANOUT = 'fanout';
+    const TYPE_TOPIC = 'topic';
+    const TYPE_HEADERS = 'headers';
+
+    const FLAG_INTERNAL = 16;
+
     /**
      * @return string
      */
