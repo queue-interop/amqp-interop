@@ -9,7 +9,7 @@ use Interop\Queue\PsrContext;
  * @method AmqpQueue createTemporaryQueue()
  * @method AmqpProducer createProducer
  * @method AmqpConsumer createConsumer(AmqpDestination $destination)
- * @method AmqpExchange createTopic($topicName)
+ * @method AmqpTopic createTopic($topicName)
  * @method AmqpMessage createMessage($body = '', array $properties = [], array $headers = [])
  */
 interface AmqpContext extends PsrContext
