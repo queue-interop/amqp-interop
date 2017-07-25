@@ -4,7 +4,7 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.6",
-    "queue-interop/queue-interop": "^0.6@dev"
+    "queue-interop/queue-interop": "^0.5@dev"
   },
   "autoload": {
     "psr-4": {
