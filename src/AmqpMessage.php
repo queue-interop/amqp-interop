@@ -6,9 +6,42 @@ use Interop\Queue\PsrMessage;
 
 interface AmqpMessage extends PsrMessage
 {
+    const DELIVERY_MODE_NON_PERSISTENT = 1;
+    const DELIVERY_MODE_PERSISTENT = 2;
+
     const FLAG_NOPARAM = 0;
     const FLAG_MANDATORY = 1;
     const FLAG_IMMEDIATE = 2;
+
+    /**
+     * @param string $type
+     */
+    public function setContentType($type);
+
+    /**
+     * @return string
+     */
+    public function getContentType();
+
+    /**
+     * @param string $encoding
+     */
+    public function setContentEncoding($encoding);
+
+    /**
+     * @return string
+     */
+    public function getContentEncoding();
+
+    /**
+     * @param int $deliveryMode
+     */
+    public function setDeliveryMode($deliveryMode);
+
+    /**
+     * @return int
+     */
+    public function getDeliveryMode();
 
     /**
      * @param int $priority
@@ -56,4 +89,14 @@ interface AmqpMessage extends PsrMessage
      * @param int $flags
      */
     public function setFlags($flags);
+
+    /**
+     * @return string
+     */
+    public function getRoutingKey();
+
+    /**
+     * @param string $routingKey
+     */
+    public function setRoutingKey($routingKey);
 }

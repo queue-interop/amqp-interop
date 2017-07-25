@@ -39,12 +39,12 @@ class AmqpMessage implements InteropAmqpMessage
     /**
      * @var int
      */
-    private $priority;
+    private $flags;
 
     /**
-     * @var int
+     * @var string
      */
-    private $flags;
+    private $routingKey;
 
     /**
      * @param string $body
@@ -224,19 +224,67 @@ class AmqpMessage implements InteropAmqpMessage
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
-    public function getPriority()
+    public function setContentType($type)
     {
-        return $this->priority;
+        $this->setHeader('content_type', $type);
     }
 
     /**
-     * @param int $priority
+     * {@inheritdoc}
+     */
+    public function getContentType()
+    {
+        return $this->getHeader('content_type');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setContentEncoding($encoding)
+    {
+        $this->setHeader('content_encoding', $encoding);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContentEncoding()
+    {
+        return $this->getHeader('content_encoding');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPriority()
+    {
+        return $this->getHeader('priority');
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function setPriority($priority)
     {
-        $this->priority = $priority;
+        $this->setHeader('priority', $priority);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setDeliveryMode($deliveryMode)
+    {
+        $this->setHeader('delivery_mode', $deliveryMode);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDeliveryMode()
+    {
+        return $this->getHeader('delivery_mode');
     }
 
     /**
@@ -298,5 +346,21 @@ class AmqpMessage implements InteropAmqpMessage
     public function setFlags($flags)
     {
         $this->flags = $flags;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRoutingKey()
+    {
+        return $this->routingKey;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setRoutingKey($routingKey)
+    {
+        $this->routingKey = $routingKey;
     }
 }

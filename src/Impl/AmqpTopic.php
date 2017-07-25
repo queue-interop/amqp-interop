@@ -22,11 +22,6 @@ class AmqpTopic implements InteropAmqpTopic
     private $flags;
 
     /**
-     * @var string
-     */
-    private $routingKey;
-
-    /**
      * @var array
      */
     private $arguments;
@@ -49,14 +44,6 @@ class AmqpTopic implements InteropAmqpTopic
     public function getTopicName()
     {
         return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setTopicName($name)
-    {
-        $this->name = $name;
     }
 
     /**
@@ -134,21 +121,5 @@ class AmqpTopic implements InteropAmqpTopic
     public function getArgument($key, $default = null)
     {
         return array_key_exists($key, $this->arguments) ? $this->arguments[$key] : $default;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRoutingKey()
-    {
-        return $this->routingKey;
-    }
-
-    /**
-     * @param string $routingKey
-     */
-    public function setRoutingKey($routingKey)
-    {
-        $this->routingKey = $routingKey;
     }
 }

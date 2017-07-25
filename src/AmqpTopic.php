@@ -62,14 +62,4 @@ interface AmqpTopic extends PsrTopic, AmqpDestination
      * @return string|bool|int|float
      */
     public function getArgument($key);
-
-    /**
-     * @return string
-     */
-    public function getRoutingKey();
-
-    /**
-     * @param string $routingKey
-     */
-    public function setRoutingKey($routingKey);
 }
