@@ -8,7 +8,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Interop\\Amqp\\": "src/Interop/Amqp/"
+      "Interop\\Amqp\\": "src/"
     }
   },
   "extra": {
