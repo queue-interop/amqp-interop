@@ -288,6 +288,22 @@ class AmqpMessage implements InteropAmqpMessage
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function setExpiration($expiration)
+    {
+        $this->setHeader('expiration', $expiration);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getExpiration()
+    {
+        return $this->getHeader('expiration');
+    }
+
+    /**
      * @return null|string
      */
     public function getDeliveryTag()

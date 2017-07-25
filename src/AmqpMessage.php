@@ -54,6 +54,16 @@ interface AmqpMessage extends PsrMessage
     public function getPriority();
 
     /**
+     * @param int $expiration
+     */
+    public function setExpiration($expiration);
+
+    /**
+     * @return int
+     */
+    public function getExpiration();
+
+    /**
      * @param string $deliveryTag
      */
     public function setDeliveryTag($deliveryTag);
