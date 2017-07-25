@@ -7,9 +7,6 @@ use Interop\Amqp\AmqpDestination;
 
 class AmqpBind implements InteropAmqpBind
 {
-    const FLAG_NOPARAM = 0;
-    const FLAG_NOWAIT = 1;
-
     /**
      * @var AmqpDestination
      */
