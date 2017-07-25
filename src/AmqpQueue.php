@@ -37,7 +37,7 @@ interface AmqpQueue extends PsrQueue, AmqpDestination
 
     /**
      * @param string $key
-     * @param string|bool|int|float $value
+     * @param string|bool|int|float|null|array $value
      */
     public function setArgument($key, $value);
 
