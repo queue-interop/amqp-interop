@@ -11,7 +11,7 @@ interface AmqpTopic extends PsrTopic, AmqpDestination
     const TYPE_TOPIC = 'topic';
     const TYPE_HEADERS = 'headers';
 
-    const FLAG_INTERNAL = 16;
+    const FLAG_INTERNAL = 2048;
 
     /**
      * @return string

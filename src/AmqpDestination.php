@@ -9,4 +9,5 @@ interface AmqpDestination
     const FLAG_DURABLE = 2;
     const FLAG_AUTODELETE = 4;
     const FLAG_NOWAIT = 8;
+    const FLAG_IFUNUSED = 16;
 }

@@ -8,12 +8,12 @@ interface AmqpBind
     const FLAG_NOWAIT = 1;
 
     /**
-     * @return AmqpDestination
+     * @return AmqpTopic|AmqpQueue
      */
     public function getTarget();
 
     /**
-     * @return AmqpDestination
+     * @return AmqpTopic|AmqpQueue
      */
     public function getSource();
 
