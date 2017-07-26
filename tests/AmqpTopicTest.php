@@ -19,18 +19,6 @@ class AmqpTopicTest extends TestCase
         $this->assertInstanceOf(InteropAmqpTopic::class, new AmqpTopic(''));
     }
 
-    public function testCouldBeConstructedWithTopicNameAsArgument()
-    {
-        new AmqpTopic('aName');
-    }
-
-    public function testShouldReturnTopicNameSetInConstructor()
-    {
-        $topic = new AmqpTopic('theName');
-
-        $this->assertSame('theName', $topic->getTopicName());
-    }
-
     public function testShouldSetEmptyArrayAsArgumentsInConstructor()
     {
         $topic = new AmqpTopic('aName');

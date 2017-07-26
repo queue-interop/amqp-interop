@@ -19,18 +19,6 @@ class AmqpQueueTest extends TestCase
         $this->assertInstanceOf(InteropAmqpQueue::class, new AmqpQueue(''));
     }
 
-    public function testCouldBeConstructedWithQueueNameArgument()
-    {
-        new AmqpQueue('aName');
-    }
-
-    public function testShouldReturnQueueNameSetInConstructor()
-    {
-        $queue = new AmqpQueue('theName');
-
-        $this->assertSame('theName', $queue->getQueueName());
-    }
-
     public function testShouldSetEmptyArrayAsArgumentsInConstructor()
     {
         $queue = new AmqpQueue('aName');
@@ -78,4 +66,14 @@ class AmqpQueueTest extends TestCase
 
         $this->assertSame(['foo' => 'fooVal', 'bar' => 'barVal'], $queue->getArguments());
     }
+
+    public function testShouldReturnPreviouslySetConsumerTag()
+    {
+        $queue = new AmqpQueue('');
+
+        $queue->setConsumerTag('theConsumerTag');
+
+        $this->assertSame('theConsumerTag', $queue->getConsumerTag());
+    }
+
 }

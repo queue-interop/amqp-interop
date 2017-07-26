@@ -19,24 +19,6 @@ class AmqpMessageTest extends TestCase
         $this->assertInstanceOf(InteropAmqpMessage::class, new AmqpMessage());
     }
 
-    public function testCouldBeConstructedWithoutArguments()
-    {
-        $message = new AmqpMessage();
-
-        $this->assertSame('', $message->getBody());
-        $this->assertSame([], $message->getProperties());
-        $this->assertSame([], $message->getHeaders());
-    }
-
-    public function testCouldBeConstructedWithOptionalArguments()
-    {
-        $message = new AmqpMessage('theBody', ['barProp' => 'barPropVal'], ['fooHeader' => 'fooHeaderVal']);
-
-        $this->assertSame('theBody', $message->getBody());
-        $this->assertSame(['barProp' => 'barPropVal'], $message->getProperties());
-        $this->assertSame(['fooHeader' => 'fooHeaderVal'], $message->getHeaders());
-    }
-
     public function testShouldSetNoParamFlagInConstructor()
     {
         $message = new AmqpMessage();
@@ -44,36 +26,54 @@ class AmqpMessageTest extends TestCase
         $this->assertSame(AmqpMessage::FLAG_NOPARAM, $message->getFlags());
     }
 
-    public function testShouldSetCorrelationIdAsHeader()
+    public function testShouldReturnPreviouslySetContentType()
     {
         $message = new AmqpMessage();
-        $message->setCorrelationId('theCorrelationId');
 
-        $this->assertSame(['correlation_id' => 'theCorrelationId'], $message->getHeaders());
+        $message->setContentType('theContentType');
+
+        $this->assertSame('theContentType', $message->getContentType());
+        $this->assertSame(['content_type' => 'theContentType'], $message->getHeaders());
     }
 
-    public function testShouldSetSetMessageIdAsHeader()
+    public function testShouldReturnPreviouslySetContentEncoding()
     {
         $message = new AmqpMessage();
-        $message->setMessageId('theMessageId');
 
-        $this->assertSame(['message_id' => 'theMessageId'], $message->getHeaders());
+        $message->setContentEncoding('theContentEncoding');
+
+        $this->assertSame('theContentEncoding', $message->getContentEncoding());
+        $this->assertSame(['content_encoding' => 'theContentEncoding'], $message->getHeaders());
     }
 
-    public function testShouldSetTimestampAsHeader()
+    public function testShouldReturnPreviouslySetDeliveryMode()
     {
         $message = new AmqpMessage();
-        $message->setTimestamp('theTimestamp');
 
-        $this->assertSame(['timestamp' => 'theTimestamp'], $message->getHeaders());
+        $message->setDeliveryMode('theDeliveryMode');
+
+        $this->assertSame('theDeliveryMode', $message->getDeliveryMode());
+        $this->assertSame(['delivery_mode' => 'theDeliveryMode'], $message->getHeaders());
     }
 
-    public function testShouldSetReplyToAsHeader()
+    public function testShouldReturnPreviouslySetExpiration()
     {
         $message = new AmqpMessage();
-        $message->setReplyTo('theReply');
 
-        $this->assertSame(['reply_to' => 'theReply'], $message->getHeaders());
+        $message->setExpiration('theExpiration');
+
+        $this->assertSame('theExpiration', $message->getExpiration());
+        $this->assertSame(['expiration' => 'theExpiration'], $message->getHeaders());
+    }
+
+    public function testShouldReturnPreviouslySetPriority()
+    {
+        $message = new AmqpMessage();
+
+        $message->setPriority('thePriority');
+
+        $this->assertSame('thePriority', $message->getPriority());
+        $this->assertSame(['priority' => 'thePriority'], $message->getHeaders());
     }
 
     public function testShouldReturnPreviouslySetDeliveryTag()
@@ -92,6 +92,15 @@ class AmqpMessageTest extends TestCase
         $message->setConsumerTag('theConsumerTag');
 
         $this->assertSame('theConsumerTag', $message->getConsumerTag());
+    }
+
+    public function testShouldAllowSetFlags()
+    {
+        $message = new AmqpMessage();
+
+        $message->setFlags(12345);
+
+        $this->assertSame(12345, $message->getFlags());
     }
 
     public function testShouldAllowAddFlags()
@@ -117,5 +126,14 @@ class AmqpMessageTest extends TestCase
         $message->clearFlags();
 
         $this->assertSame(AMQP_NOPARAM, $message->getFlags());
+    }
+
+    public function testShouldReturnPreviouslySetRoutingKey()
+    {
+        $message = new AmqpMessage();
+
+        $message->setRoutingKey('theRoutingKey');
+
+        $this->assertSame('theRoutingKey', $message->getRoutingKey());
     }
 }
