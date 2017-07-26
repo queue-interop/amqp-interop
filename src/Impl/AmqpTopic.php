@@ -102,7 +102,7 @@ class AmqpTopic implements InteropAmqpTopic
     /**
      * @param array $arguments
      */
-    public function setArguments(array $arguments = null)
+    public function setArguments(array $arguments)
     {
         $this->arguments = $arguments;
     }
