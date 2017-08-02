@@ -4,7 +4,7 @@ namespace Interop\Amqp\Impl;
 
 use Interop\Amqp\AmqpMessage as InteropAmqpMessage;
 
-class AmqpMessage implements InteropAmqpMessage
+final class AmqpMessage implements InteropAmqpMessage
 {
     /**
      * @var string

@@ -4,7 +4,7 @@ namespace Interop\Amqp\Impl;
 
 use Interop\Amqp\AmqpTopic as InteropAmqpTopic;
 
-class AmqpTopic implements InteropAmqpTopic
+final class AmqpTopic implements InteropAmqpTopic
 {
     /**
      * @var string

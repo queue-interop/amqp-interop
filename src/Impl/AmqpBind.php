@@ -5,7 +5,7 @@ namespace Interop\Amqp\Impl;
 use Interop\Amqp\AmqpBind as InteropAmqpBind;
 use Interop\Amqp\AmqpDestination;
 
-class AmqpBind implements InteropAmqpBind
+final class AmqpBind implements InteropAmqpBind
 {
     /**
      * @var AmqpDestination

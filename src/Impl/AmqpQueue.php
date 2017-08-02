@@ -4,7 +4,7 @@ namespace Interop\Amqp\Impl;
 
 use Interop\Amqp\AmqpQueue as InteropAmqpQueue;
 
-class AmqpQueue implements InteropAmqpQueue
+final class AmqpQueue implements InteropAmqpQueue
 {
     /**
      * @var string
