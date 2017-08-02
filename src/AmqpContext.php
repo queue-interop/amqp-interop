@@ -50,4 +50,11 @@ interface AmqpContext extends PsrContext
      * @param AmqpBind $bind
      */
     public function unbind(AmqpBind $bind);
+
+    /**
+     * @param int  $prefetchSize
+     * @param int  $prefetchCount
+     * @param bool $global
+     */
+    public function setQos($prefetchSize, $prefetchCount, $global);
 }
