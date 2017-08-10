@@ -3,7 +3,7 @@
   "type": "library",
   "minimum-stability": "stable",
   "require": {
-    "php": ">=5.6",
+    "php": ">=5.5",
     "queue-interop/queue-interop": "^0.6@dev"
   },
   "require-dev": {
