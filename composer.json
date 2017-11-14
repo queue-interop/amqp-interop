@@ -1,6 +1,7 @@
 {
   "name": "queue-interop/amqp-interop",
   "type": "library",
+  "license": "MIT",
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.5",
