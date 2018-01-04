@@ -6,7 +6,7 @@ use Interop\Queue\PsrConsumer;
 
 /**
  * @method AmqpMessage|null receiveNoWait()
- * @method AmqpMessage|null receive(int $timeout)
+ * @method AmqpMessage|null receive(int $timeout = 0)
  * @method AmqpQueue getQueue()
  * @method void acknowledge(AmqpMessage $message)
  * @method void reject(AmqpMessage $message, bool $requeue)
