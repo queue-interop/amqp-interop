@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Interop\Amqp\Impl;
 
@@ -39,7 +40,7 @@ final class AmqpBind implements InteropAmqpBind
      * @param int             $flags
      * @param array           $arguments
      */
-    public function __construct(AmqpDestination $target, AmqpDestination $source, $routingKey = null, $flags = self::FLAG_NOPARAM, $arguments = [])
+    public function __construct(AmqpDestination $target, AmqpDestination $source, string $routingKey = null, int $flags = self::FLAG_NOPARAM, array $arguments = [])
     {
         $this->target = $target;
         $this->source = $source;
@@ -51,7 +52,7 @@ final class AmqpBind implements InteropAmqpBind
     /**
      * {@inheritdoc}
      */
-    public function getTarget()
+    public function getTarget(): AmqpDestination
     {
         return $this->target;
     }
@@ -59,7 +60,7 @@ final class AmqpBind implements InteropAmqpBind
     /**
      * {@inheritdoc}
      */
-    public function getSource()
+    public function getSource(): AmqpDestination
     {
         return $this->source;
     }
@@ -67,7 +68,7 @@ final class AmqpBind implements InteropAmqpBind
     /**
      * {@inheritdoc}
      */
-    public function getRoutingKey()
+    public function getRoutingKey(): ?string
     {
         return $this->routingKey;
     }
@@ -75,7 +76,7 @@ final class AmqpBind implements InteropAmqpBind
     /**
      * {@inheritdoc}
      */
-    public function getFlags()
+    public function getFlags(): int
     {
         return $this->flags;
     }
@@ -83,7 +84,7 @@ final class AmqpBind implements InteropAmqpBind
     /**
      * {@inheritdoc}
      */
-    public function getArguments()
+    public function getArguments(): array
     {
         return $this->arguments;
     }

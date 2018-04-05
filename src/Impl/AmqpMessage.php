@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Interop\Amqp\Impl;
 
@@ -51,7 +52,7 @@ final class AmqpMessage implements InteropAmqpMessage
      * @param array  $properties
      * @param array  $headers
      */
-    public function __construct($body = '', array $properties = [], array $headers = [])
+    public function __construct(string $body = '', array $properties = [], array $headers = [])
     {
         $this->body = $body;
         $this->properties = $properties;
@@ -64,7 +65,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getBody()
+    public function getBody(): string
     {
         return $this->body;
     }
@@ -72,7 +73,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setBody($body)
+    public function setBody(string $body): void
     {
         $this->body = $body;
     }
@@ -80,7 +81,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setProperties(array $properties)
+    public function setProperties(array $properties): void
     {
         $this->properties = $properties;
     }
@@ -88,7 +89,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -96,7 +97,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setProperty($name, $value)
+    public function setProperty(string $name, $value): void
     {
         $this->properties[$name] = $value;
     }
@@ -104,7 +105,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getProperty($name, $default = null)
+    public function getProperty(string $name, $default = null)
     {
         return array_key_exists($name, $this->properties) ? $this->properties[$name] : $default;
     }
@@ -112,7 +113,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setHeaders(array $headers)
+    public function setHeaders(array $headers): void
     {
         $this->headers = $headers;
     }
@@ -120,7 +121,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->headers;
     }
@@ -128,7 +129,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setHeader($name, $value)
+    public function setHeader(string $name, $value): void
     {
         $this->headers[$name] = $value;
     }
@@ -136,7 +137,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getHeader($name, $default = null)
+    public function getHeader(string $name, $default = null)
     {
         return array_key_exists($name, $this->headers) ? $this->headers[$name] : $default;
     }
@@ -144,7 +145,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setRedelivered($redelivered)
+    public function setRedelivered(bool $redelivered): void
     {
         $this->redelivered = (bool) $redelivered;
     }
@@ -152,7 +153,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function isRedelivered()
+    public function isRedelivered(): bool
     {
         return $this->redelivered;
     }
@@ -160,7 +161,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setCorrelationId($correlationId)
+    public function setCorrelationId(string $correlationId = null): void
     {
         $this->setHeader('correlation_id', $correlationId);
     }
@@ -168,7 +169,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getCorrelationId()
+    public function getCorrelationId(): ?string
     {
         return $this->getHeader('correlation_id');
     }
@@ -176,7 +177,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setMessageId($messageId)
+    public function setMessageId(string $messageId): void
     {
         $this->setHeader('message_id', $messageId);
     }
@@ -184,7 +185,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getMessageId()
+    public function getMessageId(): ?string
     {
         return $this->getHeader('message_id');
     }
@@ -192,7 +193,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getTimestamp()
+    public function getTimestamp(): ?int
     {
         $value = $this->getHeader('timestamp');
 
@@ -202,7 +203,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setTimestamp($timestamp)
+    public function setTimestamp(int $timestamp = null): void
     {
         $this->setHeader('timestamp', $timestamp);
     }
@@ -210,7 +211,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setReplyTo($replyTo)
+    public function setReplyTo(string $replyTo = null): void
     {
         $this->setHeader('reply_to', $replyTo);
     }
@@ -218,7 +219,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getReplyTo()
+    public function getReplyTo(): ?string
     {
         return $this->getHeader('reply_to');
     }
@@ -226,7 +227,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setContentType($type)
+    public function setContentType(string $type = null): void
     {
         $this->setHeader('content_type', $type);
     }
@@ -234,7 +235,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getContentType()
+    public function getContentType(): ?string
     {
         return $this->getHeader('content_type');
     }
@@ -242,7 +243,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setContentEncoding($encoding)
+    public function setContentEncoding(string $encoding = null): void
     {
         $this->setHeader('content_encoding', $encoding);
     }
@@ -250,7 +251,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getContentEncoding()
+    public function getContentEncoding(): ?string
     {
         return $this->getHeader('content_encoding');
     }
@@ -258,7 +259,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getPriority()
+    public function getPriority(): ?int
     {
         return $this->getHeader('priority');
     }
@@ -266,7 +267,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setPriority($priority)
+    public function setPriority(int $priority = null): void
     {
         $this->setHeader('priority', $priority);
     }
@@ -274,7 +275,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setDeliveryMode($deliveryMode)
+    public function setDeliveryMode(int $deliveryMode = null): void
     {
         $this->setHeader('delivery_mode', $deliveryMode);
     }
@@ -282,7 +283,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getDeliveryMode()
+    public function getDeliveryMode(): ?int
     {
         return $this->getHeader('delivery_mode');
     }
@@ -290,7 +291,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setExpiration($expiration)
+    public function setExpiration(int $expiration = null): void
     {
         $this->setHeader('expiration', $expiration);
     }
@@ -298,7 +299,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getExpiration()
+    public function getExpiration(): ?int
     {
         return $this->getHeader('expiration');
     }
@@ -306,7 +307,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * @return null|string
      */
-    public function getDeliveryTag()
+    public function getDeliveryTag(): ?string
     {
         return $this->deliveryTag;
     }
@@ -314,7 +315,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * @param null|string $deliveryTag
      */
-    public function setDeliveryTag($deliveryTag)
+    public function setDeliveryTag(string $deliveryTag = null): void
     {
         $this->deliveryTag = $deliveryTag;
     }
@@ -322,7 +323,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * @return string|null
      */
-    public function getConsumerTag()
+    public function getConsumerTag(): ?string
     {
         return $this->consumerTag;
     }
@@ -330,12 +331,12 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * @param string|null $consumerTag
      */
-    public function setConsumerTag($consumerTag)
+    public function setConsumerTag(string $consumerTag = null): void
     {
         $this->consumerTag = $consumerTag;
     }
 
-    public function clearFlags()
+    public function clearFlags(): void
     {
         $this->flags = self::FLAG_NOPARAM;
     }
@@ -343,7 +344,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * @param int $flag
      */
-    public function addFlag($flag)
+    public function addFlag(int $flag): void
     {
         $this->flags |= $flag;
     }
@@ -351,7 +352,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * @return int
      */
-    public function getFlags()
+    public function getFlags(): int
     {
         return $this->flags;
     }
@@ -359,7 +360,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setFlags($flags)
+    public function setFlags(int $flags): void
     {
         $this->flags = $flags;
     }
@@ -367,7 +368,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function getRoutingKey()
+    public function getRoutingKey(): ?string
     {
         return $this->routingKey;
     }
@@ -375,7 +376,7 @@ final class AmqpMessage implements InteropAmqpMessage
     /**
      * {@inheritdoc}
      */
-    public function setRoutingKey($routingKey)
+    public function setRoutingKey(string $routingKey = null): void
     {
         $this->routingKey = $routingKey;
     }

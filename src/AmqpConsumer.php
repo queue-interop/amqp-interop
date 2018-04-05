@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Interop\Amqp;
 
@@ -22,27 +23,27 @@ interface AmqpConsumer extends PsrConsumer
     /**
      * @param string $consumerTag
      */
-    public function setConsumerTag($consumerTag);
+    public function setConsumerTag(string $consumerTag = null): void;
 
     /**
      * @return string
      */
-    public function getConsumerTag();
+    public function getConsumerTag(): ?string;
 
-    public function clearFlags();
+    public function clearFlags(): void;
 
     /**
      * @param int $flag
      */
-    public function addFlag($flag);
+    public function addFlag(int $flag): void;
 
     /**
      * @return int
      */
-    public function getFlags();
+    public function getFlags(): int;
 
     /**
      * @param int $flags
      */
-    public function setFlags($flags);
+    public function setFlags(int $flags): void;
 }

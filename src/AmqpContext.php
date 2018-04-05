@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Interop\Amqp;
 
@@ -17,46 +18,46 @@ interface AmqpContext extends PsrContext
     /**
      * @param AmqpTopic $topic
      */
-    public function declareTopic(AmqpTopic $topic);
+    public function declareTopic(AmqpTopic $topic): void;
 
     /**
      * @param AmqpTopic $topic
      */
-    public function deleteTopic(AmqpTopic $topic);
+    public function deleteTopic(AmqpTopic $topic): void;
 
     /**
      * @param AmqpQueue $queue
      *
      * @return int
      */
-    public function declareQueue(AmqpQueue $queue);
+    public function declareQueue(AmqpQueue $queue): int;
 
     /**
      * @param AmqpQueue $queue
      */
-    public function deleteQueue(AmqpQueue $queue);
+    public function deleteQueue(AmqpQueue $queue): void;
 
     /**
      * @param AmqpQueue $queue
      */
-    public function purgeQueue(AmqpQueue $queue);
+    public function purgeQueue(AmqpQueue $queue): void;
 
     /**
      * @param AmqpBind $bind
      */
-    public function bind(AmqpBind $bind);
+    public function bind(AmqpBind $bind): void;
 
     /**
      * @param AmqpBind $bind
      */
-    public function unbind(AmqpBind $bind);
+    public function unbind(AmqpBind $bind): void;
 
     /**
      * @param int  $prefetchSize
      * @param int  $prefetchCount
      * @param bool $global
      */
-    public function setQos($prefetchSize, $prefetchCount, $global);
+    public function setQos(int $prefetchSize, int $prefetchCount, bool $global): void;
 
     /**
      * Notify broker that the channel is interested in consuming messages from this queue.
@@ -72,19 +73,19 @@ interface AmqpContext extends PsrContext
      *
      * @return void
      */
-    public function subscribe(AmqpConsumer $consumer, callable $callback);
+    public function subscribe(AmqpConsumer $consumer, callable $callback): void;
 
     /**
      * @param AmqpConsumer $consumer
      *
      * @return void
      */
-    public function unsubscribe(AmqpConsumer $consumer);
+    public function unsubscribe(AmqpConsumer $consumer): void;
 
     /**
-     * @param float|int $timeout milliseconds, consumes endlessly if zero set
+     * @param int $timeout milliseconds, consumes endlessly if zero set
      *
      * @return void
      */
-    public function consume($timeout = 0);
+    public function consume(int $timeout = 0): void;
 }
