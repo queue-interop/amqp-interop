@@ -18,18 +18,9 @@ interface AmqpBind
      */
     public function getSource(): AmqpDestination;
 
-    /**
-     * @return string
-     */
     public function getRoutingKey(): ?string;
 
-    /**
-     * @return int
-     */
     public function getFlags(): int;
 
-    /**
-     * @return array
-     */
     public function getArguments(): array;
 }
