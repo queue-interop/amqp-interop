@@ -44,7 +44,7 @@ class AmqpBindTest extends TestCase
 
     public function testShouldReturnArgumentsSetInConstructor()
     {
-        $bind = new AmqpBind(new AmqpTopic(''), new AmqpTopic(''), null, null, ['key' => 'value']);
+        $bind = new AmqpBind(new AmqpTopic(''), new AmqpTopic(''), null, 0, ['key' => 'value']);
 
         $this->assertSame(['key' => 'value'], $bind->getArguments());
     }

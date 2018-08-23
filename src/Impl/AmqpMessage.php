@@ -79,7 +79,11 @@ final class AmqpMessage implements InteropAmqpMessage
 
     public function setProperty(string $name, $value): void
     {
-        $this->properties[$name] = $value;
+        if (null === $value) {
+            unset($this->properties[$name]);
+        } else {
+            $this->properties[$name] = $value;
+        }
     }
 
     public function getProperty(string $name, $default = null)
@@ -99,7 +103,11 @@ final class AmqpMessage implements InteropAmqpMessage
 
     public function setHeader(string $name, $value): void
     {
-        $this->headers[$name] = $value;
+        if (null === $value) {
+            unset($this->headers[$name]);
+        } else {
+            $this->headers[$name] = $value;
+        }
     }
 
     public function getHeader(string $name, $default = null)
@@ -201,12 +209,17 @@ final class AmqpMessage implements InteropAmqpMessage
 
     public function setExpiration(int $expiration = null): void
     {
-        $this->setHeader('expiration', $expiration);
+        // expiration is a string
+        // https://www.rabbitmq.com/amqp-0-9-1-reference.html#domain.shortstr
+
+        $this->setHeader('expiration', null === $expiration ? null : (string) $expiration);
     }
 
     public function getExpiration(): ?int
     {
-        return $this->getHeader('expiration');
+        $expiration = $this->getHeader('expiration');
+
+        return null === $expiration ? null : (int) $expiration;
     }
 
     public function getDeliveryTag(): ?string

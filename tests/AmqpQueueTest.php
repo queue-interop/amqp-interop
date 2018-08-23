@@ -55,7 +55,7 @@ class AmqpQueueTest extends TestCase
 
         $queue->clearFlags();
 
-        $this->assertSame(AMQP_NOPARAM, $queue->getFlags());
+        $this->assertSame(AmqpQueue::FLAG_NOPARAM, $queue->getFlags());
     }
 
     public function testShouldAllowGetPreviouslySetArguments()

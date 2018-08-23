@@ -50,30 +50,30 @@ class AmqpMessageTest extends TestCase
     {
         $message = new AmqpMessage();
 
-        $message->setDeliveryMode('theDeliveryMode');
+        $message->setDeliveryMode(149);
 
-        $this->assertSame('theDeliveryMode', $message->getDeliveryMode());
-        $this->assertSame(['delivery_mode' => 'theDeliveryMode'], $message->getHeaders());
+        $this->assertSame(149, $message->getDeliveryMode());
+        $this->assertSame(['delivery_mode' => 149], $message->getHeaders());
     }
 
     public function testShouldReturnPreviouslySetExpiration()
     {
         $message = new AmqpMessage();
 
-        $message->setExpiration('theExpiration');
+        $message->setExpiration(123490);
 
-        $this->assertSame('theExpiration', $message->getExpiration());
-        $this->assertSame(['expiration' => 'theExpiration'], $message->getHeaders());
+        $this->assertSame(123490, $message->getExpiration());
+        $this->assertSame(['expiration' => '123490'], $message->getHeaders());
     }
 
     public function testShouldReturnPreviouslySetPriority()
     {
         $message = new AmqpMessage();
 
-        $message->setPriority('thePriority');
+        $message->setPriority(3);
 
-        $this->assertSame('thePriority', $message->getPriority());
-        $this->assertSame(['priority' => 'thePriority'], $message->getHeaders());
+        $this->assertSame(3, $message->getPriority());
+        $this->assertSame(['priority' => 3], $message->getHeaders());
     }
 
     public function testShouldReturnPreviouslySetDeliveryTag()
@@ -125,7 +125,7 @@ class AmqpMessageTest extends TestCase
 
         $message->clearFlags();
 
-        $this->assertSame(AMQP_NOPARAM, $message->getFlags());
+        $this->assertSame(AmqpMessage::FLAG_NOPARAM, $message->getFlags());
     }
 
     public function testShouldReturnPreviouslySetRoutingKey()
@@ -135,5 +135,35 @@ class AmqpMessageTest extends TestCase
         $message->setRoutingKey('theRoutingKey');
 
         $this->assertSame('theRoutingKey', $message->getRoutingKey());
+    }
+
+    public function testShouldUnsetHeaderIfNullPassed()
+    {
+        $message = new AmqpMessage();
+
+        $message->setHeader('aHeader', 'aVal');
+
+        //guard
+        $this->assertSame('aVal', $message->getHeader('aHeader'));
+
+        $message->setHeader('aHeader', null);
+
+        $this->assertNull($message->getHeader('aHeader'));
+        $this->assertSame([], $message->getHeaders());
+    }
+
+    public function testShouldUnsetPropertyIfNullPassed()
+    {
+        $message = new AmqpMessage();
+
+        $message->setProperty('aProperty', 'aVal');
+
+        //guard
+        $this->assertSame('aVal', $message->getProperty('aProperty'));
+
+        $message->setProperty('aProperty', null);
+
+        $this->assertNull($message->getProperty('aProperty'));
+        $this->assertSame([], $message->getProperties());
     }
 }
