@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Interop\Amqp;
 
@@ -10,25 +11,16 @@ interface AmqpBind
     /**
      * @return AmqpTopic|AmqpQueue
      */
-    public function getTarget();
+    public function getTarget(): AmqpDestination;
 
     /**
      * @return AmqpTopic|AmqpQueue
      */
-    public function getSource();
+    public function getSource(): AmqpDestination;
 
-    /**
-     * @return string
-     */
-    public function getRoutingKey();
+    public function getRoutingKey(): ?string;
 
-    /**
-     * @return int
-     */
-    public function getFlags();
+    public function getFlags(): int;
 
-    /**
-     * @return array
-     */
-    public function getArguments();
+    public function getArguments(): array;
 }

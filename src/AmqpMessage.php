@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Interop\Amqp;
 
@@ -13,100 +14,43 @@ interface AmqpMessage extends PsrMessage
     const FLAG_MANDATORY = 1;
     const FLAG_IMMEDIATE = 2;
 
-    /**
-     * @param string $type
-     */
-    public function setContentType($type);
+    public function setContentType(string $type = null): void;
 
-    /**
-     * @return string
-     */
-    public function getContentType();
+    public function getContentType(): ?string;
 
-    /**
-     * @param string $encoding
-     */
-    public function setContentEncoding($encoding);
+    public function setContentEncoding(string $encoding = null): void;
 
-    /**
-     * @return string
-     */
-    public function getContentEncoding();
+    public function getContentEncoding(): ?string;
 
-    /**
-     * @param int $deliveryMode
-     */
-    public function setDeliveryMode($deliveryMode);
+    public function setDeliveryMode(int $deliveryMode = null): void;
 
-    /**
-     * @return int
-     */
-    public function getDeliveryMode();
+    public function getDeliveryMode(): ?int;
 
-    /**
-     * @param int $priority
-     */
-    public function setPriority($priority);
+    public function setPriority(int $priority = null): void;
 
-    /**
-     * @return int
-     */
-    public function getPriority();
+    public function getPriority(): ?int;
 
-    /**
-     * @param int $expiration
-     */
-    public function setExpiration($expiration);
+    public function setExpiration(int $expiration): void;
 
-    /**
-     * @return int
-     */
-    public function getExpiration();
+    public function getExpiration(): ?int;
 
-    /**
-     * @param string $deliveryTag
-     */
-    public function setDeliveryTag($deliveryTag);
+    public function setDeliveryTag(string $deliveryTag = null): void;
 
-    /**
-     * @return string
-     */
-    public function getDeliveryTag();
+    public function getDeliveryTag(): ?string;
 
-    /**
-     * @return string|null
-     */
-    public function getConsumerTag();
+    public function getConsumerTag(): ?string;
 
-    /**
-     * @param string|null $consumerTag
-     */
-    public function setConsumerTag($consumerTag);
+    public function setConsumerTag(string $consumerTag = null): void;
 
-    public function clearFlags();
+    public function clearFlags(): void;
 
-    /**
-     * @param int $flag
-     */
-    public function addFlag($flag);
+    public function addFlag(int $flag): void;
 
-    /**
-     * @return int
-     */
-    public function getFlags();
+    public function getFlags(): int;
 
-    /**
-     * @param int $flags
-     */
-    public function setFlags($flags);
+    public function setFlags(int $flags): void;
 
-    /**
-     * @return string
-     */
-    public function getRoutingKey();
+    public function getRoutingKey(): ?string ;
 
-    /**
-     * @param string $routingKey
-     */
-    public function setRoutingKey($routingKey);
+    public function setRoutingKey(string $routingKey = null): void;
 }
