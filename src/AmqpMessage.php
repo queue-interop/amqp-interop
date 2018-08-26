@@ -30,7 +30,7 @@ interface AmqpMessage extends PsrMessage
 
     public function getPriority(): ?int;
 
-    public function setExpiration(int $expiration): void;
+    public function setExpiration(int $expiration = null): void;
 
     public function getExpiration(): ?int;
 
