@@ -34,9 +34,12 @@ interface AmqpMessage extends PsrMessage
 
     public function getExpiration(): ?int;
 
-    public function setDeliveryTag(string $deliveryTag = null): void;
+    public function setDeliveryTag(int $deliveryTag = null): void;
 
-    public function getDeliveryTag(): ?string;
+    /**
+     * https://www.rabbitmq.com/amqp-0-9-1-reference.html#domain.delivery-tag
+     */
+    public function getDeliveryTag(): ?int;
 
     public function getConsumerTag(): ?string;
 

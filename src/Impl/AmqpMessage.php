@@ -23,7 +23,7 @@ final class AmqpMessage implements InteropAmqpMessage
     private $headers;
 
     /**
-     * @var string|null
+     * @var int|null
      */
     private $deliveryTag;
 
@@ -222,12 +222,12 @@ final class AmqpMessage implements InteropAmqpMessage
         return null === $expiration ? null : (int) $expiration;
     }
 
-    public function getDeliveryTag(): ?string
+    public function getDeliveryTag(): ?int
     {
         return $this->deliveryTag;
     }
 
-    public function setDeliveryTag(string $deliveryTag = null): void
+    public function setDeliveryTag(int $deliveryTag = null): void
     {
         $this->deliveryTag = $deliveryTag;
     }

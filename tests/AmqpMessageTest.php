@@ -80,9 +80,9 @@ class AmqpMessageTest extends TestCase
     {
         $message = new AmqpMessage();
 
-        $message->setDeliveryTag('theDeliveryTag');
+        $message->setDeliveryTag(123);
 
-        $this->assertSame('theDeliveryTag', $message->getDeliveryTag());
+        $this->assertSame(123, $message->getDeliveryTag());
     }
 
     public function testShouldReturnPreviouslySetConsumerTag()
