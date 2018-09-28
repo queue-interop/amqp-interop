@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Interop\Amqp;
 
-use Interop\Queue\PsrContext;
+use Interop\Queue\Context;
 
 /**
  * @method AmqpQueue createQueue($queueName)
@@ -13,7 +13,7 @@ use Interop\Queue\PsrContext;
  * @method AmqpTopic createTopic($topicName)
  * @method AmqpMessage createMessage($body = '', array $properties = [], array $headers = [])
  */
-interface AmqpContext extends PsrContext
+interface AmqpContext extends Context
 {
     public function declareTopic(AmqpTopic $topic): void;
 

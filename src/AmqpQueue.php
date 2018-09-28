@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace Interop\Amqp;
 
-use Interop\Queue\PsrQueue;
+use Interop\Queue\Queue;
 
-interface AmqpQueue extends PsrQueue, AmqpDestination
+interface AmqpQueue extends Queue, AmqpDestination
 {
     const FLAG_EXCLUSIVE = 2097152;
     const FLAG_IFEMPTY = 4194304;

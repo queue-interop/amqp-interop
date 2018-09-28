@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Interop\Amqp;
 
-use Interop\Queue\PsrConsumer;
+use Interop\Queue\Consumer;
 
 /**
  * @method AmqpMessage|null receiveNoWait()
@@ -12,7 +12,7 @@ use Interop\Queue\PsrConsumer;
  * @method void acknowledge(AmqpMessage $message)
  * @method void reject(AmqpMessage $message, bool $requeue)
  */
-interface AmqpConsumer extends PsrConsumer
+interface AmqpConsumer extends Consumer
 {
     const FLAG_NOPARAM = 0;
     const FLAG_NOLOCAL = 1;
