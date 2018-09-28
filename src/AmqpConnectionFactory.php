@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Interop\Amqp;
 
-use Interop\Queue\PsrConnectionFactory;
+use Interop\Queue\ConnectionFactory;
 
-interface AmqpConnectionFactory extends PsrConnectionFactory
+interface AmqpConnectionFactory extends ConnectionFactory
 {
 }

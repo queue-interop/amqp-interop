@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace Interop\Amqp;
 
-use Interop\Queue\PsrMessage;
+use Interop\Queue\Message;
 
-interface AmqpMessage extends PsrMessage
+interface AmqpMessage extends Message
 {
     const DELIVERY_MODE_NON_PERSISTENT = 1;
     const DELIVERY_MODE_PERSISTENT = 2;

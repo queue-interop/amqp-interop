@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace Interop\Amqp;
 
-use Interop\Queue\PsrTopic;
+use Interop\Queue\Topic;
 
-interface AmqpTopic extends PsrTopic, AmqpDestination
+interface AmqpTopic extends Topic, AmqpDestination
 {
     const TYPE_DIRECT = 'direct';
     const TYPE_FANOUT = 'fanout';

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Interop\Amqp;
 
-use Interop\Queue\PsrSubscriptionConsumer;
+use Interop\Queue\SubscriptionConsumer;
 
-interface AmqpSubscriptionConsumer extends PsrSubscriptionConsumer
+interface AmqpSubscriptionConsumer extends SubscriptionConsumer
 {
 }

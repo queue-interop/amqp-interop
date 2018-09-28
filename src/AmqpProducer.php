@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Interop\Amqp;
 
-use Interop\Queue\PsrProducer;
+use Interop\Queue\Producer;
 
-interface AmqpProducer extends PsrProducer
+interface AmqpProducer extends Producer
 {
 }
