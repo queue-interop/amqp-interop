@@ -15,6 +15,11 @@
       "Interop\\Amqp\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Interop\\Amqp\\Tests\\": "test/"
+    }
+  },
   "extra": {
     "branch-alias": {
       "dev-master": "0.8.x-dev"
