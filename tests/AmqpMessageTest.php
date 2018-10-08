@@ -4,14 +4,14 @@ namespace Interop\Amqp\Tests;
 
 use Interop\Amqp\AmqpMessage as InteropAmqpMessage;
 use Interop\Amqp\Impl\AmqpMessage;
-use Interop\Queue\PsrMessage;
+use Interop\Queue\Message;
 use PHPUnit\Framework\TestCase;
 
 class AmqpMessageTest extends TestCase
 {
-    public function testShouldImplementPsrQueueInterface()
+    public function testShouldImplementMessageInterface()
     {
-        $this->assertInstanceOf(PsrMessage::class, new AmqpMessage());
+        $this->assertInstanceOf(Message::class, new AmqpMessage());
     }
 
     public function testShouldImplementAmqpQueueInterface()
