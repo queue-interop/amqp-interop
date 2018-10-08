@@ -4,14 +4,14 @@ namespace Interop\Amqp\Tests;
 
 use Interop\Amqp\AmqpQueue as InteropAmqpQueue;
 use Interop\Amqp\Impl\AmqpQueue;
-use Interop\Queue\PsrQueue;
+use Interop\Queue\Queue;
 use PHPUnit\Framework\TestCase;
 
 class AmqpQueueTest extends TestCase
 {
-    public function testShouldImplementPsrQueueInterface()
+    public function testShouldImplementQueueInterface()
     {
-        $this->assertInstanceOf(PsrQueue::class, new AmqpQueue(''));
+        $this->assertInstanceOf(Queue::class, new AmqpQueue(''));
     }
 
     public function testShouldImplementInteropQueueInterface()

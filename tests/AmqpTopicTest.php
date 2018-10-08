@@ -4,14 +4,14 @@ namespace Interop\Amqp\Tests;
 
 use Interop\Amqp\AmqpTopic as InteropAmqpTopic;
 use Interop\Amqp\Impl\AmqpTopic;
-use Interop\Queue\PsrTopic;
+use Interop\Queue\Topic;
 use PHPUnit\Framework\TestCase;
 
 class AmqpTopicTest extends TestCase
 {
-    public function testShouldImplementPsrTopicInterface()
+    public function testShouldImplementTopicInterface()
     {
-        $this->assertInstanceOf(PsrTopic::class, new AmqpTopic(''));
+        $this->assertInstanceOf(Topic::class, new AmqpTopic(''));
     }
 
     public function testShouldImplementAmqpTopicInterface()
