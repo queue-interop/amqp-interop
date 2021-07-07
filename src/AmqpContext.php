@@ -8,7 +8,7 @@ use Interop\Queue\Context;
 /**
  * @method AmqpQueue createQueue($queueName)
  * @method AmqpQueue createTemporaryQueue()
- * @method AmqpProducer createProducer
+ * @method AmqpProducer createProducer()
  * @method AmqpConsumer createConsumer(AmqpDestination $destination)
  * @method AmqpTopic createTopic($topicName)
  * @method AmqpMessage createMessage($body = '', array $properties = [], array $headers = [])
