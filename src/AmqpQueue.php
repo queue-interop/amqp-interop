@@ -28,5 +28,5 @@ interface AmqpQueue extends Queue, AmqpDestination
 
     public function getConsumerTag(): ?string;
 
-    public function setConsumerTag(string $consumerTag = null): void;
+    public function setConsumerTag(?string $consumerTag = null): void;
 }

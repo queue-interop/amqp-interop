@@ -14,11 +14,11 @@ interface AmqpMessage extends Message
     const FLAG_MANDATORY = 1;
     const FLAG_IMMEDIATE = 2;
 
-    public function setContentType(string $type = null): void;
+    public function setContentType(?string $type = null): void;
 
     public function getContentType(): ?string;
 
-    public function setContentEncoding(string $encoding = null): void;
+    public function setContentEncoding(?string $encoding = null): void;
 
     public function getContentEncoding(): ?string;
 
@@ -26,15 +26,15 @@ interface AmqpMessage extends Message
 
     public function getDeliveryMode(): ?int;
 
-    public function setPriority(int $priority = null): void;
+    public function setPriority(?int $priority = null): void;
 
     public function getPriority(): ?int;
 
-    public function setExpiration(int $expiration = null): void;
+    public function setExpiration(?int $expiration = null): void;
 
     public function getExpiration(): ?int;
 
-    public function setDeliveryTag(int $deliveryTag = null): void;
+    public function setDeliveryTag(?int $deliveryTag = null): void;
 
     /**
      * https://www.rabbitmq.com/amqp-0-9-1-reference.html#domain.delivery-tag
@@ -43,7 +43,7 @@ interface AmqpMessage extends Message
 
     public function getConsumerTag(): ?string;
 
-    public function setConsumerTag(string $consumerTag = null): void;
+    public function setConsumerTag(?string $consumerTag = null): void;
 
     public function clearFlags(): void;
 
@@ -55,5 +55,5 @@ interface AmqpMessage extends Message
 
     public function getRoutingKey(): ?string ;
 
-    public function setRoutingKey(string $routingKey = null): void;
+    public function setRoutingKey(?string $routingKey = null): void;
 }

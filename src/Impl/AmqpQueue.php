@@ -45,7 +45,7 @@ final class AmqpQueue implements InteropAmqpQueue
         return $this->consumerTag;
     }
 
-    public function setConsumerTag(string $consumerTag = null): void
+    public function setConsumerTag(?string $consumerTag = null): void
     {
         $this->consumerTag = $consumerTag;
     }
@@ -85,7 +85,7 @@ final class AmqpQueue implements InteropAmqpQueue
         $this->arguments[$key] = $value;
     }
 
-    public function getArgument(string $key, $default = null)
+    public function getArgument(?string $key, $default = null)
     {
         return array_key_exists($key, $this->arguments) ? $this->arguments[$key] : $default;
     }

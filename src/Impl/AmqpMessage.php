@@ -125,7 +125,7 @@ final class AmqpMessage implements InteropAmqpMessage
         return $this->redelivered;
     }
 
-    public function setCorrelationId(string $correlationId = null): void
+    public function setCorrelationId(?string $correlationId = null): void
     {
         $this->setHeader('correlation_id', $correlationId);
     }
@@ -135,7 +135,7 @@ final class AmqpMessage implements InteropAmqpMessage
         return $this->getHeader('correlation_id');
     }
 
-    public function setMessageId(string $messageId = null): void
+    public function setMessageId(?string $messageId = null): void
     {
         $this->setHeader('message_id', $messageId);
     }
@@ -152,12 +152,12 @@ final class AmqpMessage implements InteropAmqpMessage
         return $value === null ? null : (int) $value;
     }
 
-    public function setTimestamp(int $timestamp = null): void
+    public function setTimestamp(?int $timestamp = null): void
     {
         $this->setHeader('timestamp', $timestamp);
     }
 
-    public function setReplyTo(string $replyTo = null): void
+    public function setReplyTo(?string $replyTo = null): void
     {
         $this->setHeader('reply_to', $replyTo);
     }
@@ -167,7 +167,7 @@ final class AmqpMessage implements InteropAmqpMessage
         return $this->getHeader('reply_to');
     }
 
-    public function setContentType(string $type = null): void
+    public function setContentType(?string $type = null): void
     {
         $this->setHeader('content_type', $type);
     }
@@ -177,7 +177,7 @@ final class AmqpMessage implements InteropAmqpMessage
         return $this->getHeader('content_type');
     }
 
-    public function setContentEncoding(string $encoding = null): void
+    public function setContentEncoding(?string $encoding = null): void
     {
         $this->setHeader('content_encoding', $encoding);
     }
@@ -192,12 +192,12 @@ final class AmqpMessage implements InteropAmqpMessage
         return $this->getHeader('priority');
     }
 
-    public function setPriority(int $priority = null): void
+    public function setPriority(?int $priority = null): void
     {
         $this->setHeader('priority', $priority);
     }
 
-    public function setDeliveryMode(int $deliveryMode = null): void
+    public function setDeliveryMode(?int $deliveryMode = null): void
     {
         $this->setHeader('delivery_mode', $deliveryMode);
     }
@@ -207,7 +207,7 @@ final class AmqpMessage implements InteropAmqpMessage
         return $this->getHeader('delivery_mode');
     }
 
-    public function setExpiration(int $expiration = null): void
+    public function setExpiration(?int $expiration = null): void
     {
         // expiration is a string
         // https://www.rabbitmq.com/amqp-0-9-1-reference.html#domain.shortstr
@@ -227,7 +227,7 @@ final class AmqpMessage implements InteropAmqpMessage
         return $this->deliveryTag;
     }
 
-    public function setDeliveryTag(int $deliveryTag = null): void
+    public function setDeliveryTag(?int $deliveryTag = null): void
     {
         $this->deliveryTag = $deliveryTag;
     }
@@ -237,7 +237,7 @@ final class AmqpMessage implements InteropAmqpMessage
         return $this->consumerTag;
     }
 
-    public function setConsumerTag(string $consumerTag = null): void
+    public function setConsumerTag(?string $consumerTag = null): void
     {
         $this->consumerTag = $consumerTag;
     }
@@ -267,7 +267,7 @@ final class AmqpMessage implements InteropAmqpMessage
         return $this->routingKey;
     }
 
-    public function setRoutingKey(string $routingKey = null): void
+    public function setRoutingKey(?string $routingKey = null): void
     {
         $this->routingKey = $routingKey;
     }

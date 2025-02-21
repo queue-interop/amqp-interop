@@ -20,7 +20,7 @@ interface AmqpConsumer extends Consumer
     const FLAG_EXCLUSIVE = 4;
     const FLAG_NOWAIT = 8;
 
-    public function setConsumerTag(string $consumerTag = null): void;
+    public function setConsumerTag(?string $consumerTag = null): void;
 
     public function getConsumerTag(): ?string;
 
