@@ -40,6 +40,11 @@ final class AmqpQueue implements InteropAmqpQueue
         return $this->name;
     }
 
+    public function setQueueName(?string $queueName): void
+    {
+        $this->name = $queueName;
+    }
+
     public function getConsumerTag(): ?string
     {
         return $this->consumerTag;
